@@ -1,0 +1,19 @@
+<h2>Mis Pagos</h2>
+
+<h3>Pagos al Día</h3>
+<ul>
+    {% for pago in pagos_al_dia %}
+        <li>{{ pago.fecha_pago }} - ${{ pago.monto }}</li>
+    {% empty %}
+        <li>No tienes pagos al día.</li>
+    {% endfor %}
+</ul>
+
+<h3>Pagos Pendientes</h3>
+<ul>
+    {% for pago in pagos_pendientes %}
+        <li>{{ pago.fecha_pago }} - ${{ pago.monto }} (Vencido el {{ pago.fecha_limite }})</li>
+    {% empty %}
+        <li>No tienes pagos pendientes.</li>
+    {% endfor %}
+</ul>
