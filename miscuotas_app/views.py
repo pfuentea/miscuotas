@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Pago, Apoderado
-    
+from django.db.models import F
+from .models import Pago, Apoderado, Bonificacion
 # Create your views here.
 
 def index(request):
@@ -18,4 +18,5 @@ def pagos_apoderado(request):
         'pagos_pendientes': pagos_pendientes
     }
     
-    return render(request, 'app/pagos_apoderado.html', context)
+    #return render(request, 'app/pagos_apoderado.html', context)
+    return render(request, 'pagos_apoderado.html', context)
