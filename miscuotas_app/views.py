@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.db.models import F
 from .models import Pago, Apoderado, Bonificacion
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required
 def index(request):
     return render(request, 'index.html')
 
-
+@login_required
 def pagos_apoderado(request):
     apoderado = Apoderado.objects.get(user=request.user)
     pagos = Pago.objects.filter(apoderado=apoderado)
