@@ -12,11 +12,13 @@ def pagos_apoderado(request):
     pagos = Pago.objects.filter(apoderado=apoderado)
     pagos_al_dia = pagos.filter(fecha_pago__lte=F('fecha_limite'))
     pagos_pendientes = pagos.filter(fecha_pago__gt=F('fecha_limite'))
+    bonificaciones = Bonificacion.objects.filter(apoderado=apoderado)
+
     
     context = {
         'pagos_al_dia': pagos_al_dia,
-        'pagos_pendientes': pagos_pendientes
+        'pagos_pendientes': pagos_pendientes,
+        'bonificaciones': bonificaciones,
     }
     
-    #return render(request, 'app/pagos_apoderado.html', context)
     return render(request, 'pagos_apoderado.html', context)

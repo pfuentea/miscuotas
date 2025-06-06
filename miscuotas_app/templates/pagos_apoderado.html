@@ -17,3 +17,12 @@
         <li>No tienes pagos pendientes.</li>
     {% endfor %}
 </ul>
+
+<h3>Bonificaciones</h3>
+<ul>
+    {% for bonificacion in bonificaciones %}
+        <li>{{ bonificacion.fecha }} - {{ bonificacion.descripcion }}: ${{ bonificacion.monto }}</li>
+    {% empty %}
+        <li>No tienes bonificaciones registradas.</li>
+    {% endfor %}
+</ul>
